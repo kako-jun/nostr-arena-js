@@ -151,6 +151,14 @@ impl Arena {
             .map_err(|e| JsValue::from_str(&e.to_string()))
     }
 
+    /// Reconnect to a room
+    pub async fn reconnect(&self, room_id: &str) -> Result<(), JsValue> {
+        self.inner
+            .reconnect(room_id)
+            .await
+            .map_err(|e| JsValue::from_str(&e.to_string()))
+    }
+
     /// Send game state
     #[wasm_bindgen(js_name = sendState)]
     pub async fn send_state(&self, state: JsValue) -> Result<(), JsValue> {
