@@ -1,9 +1,14 @@
 name: Release
 
+# NOTE: WASM build is currently disabled due to tokio::spawn requiring Send futures,
+# which nostr-sdk doesn't provide. WASM support requires significant refactoring.
+# See: https://github.com/kako-jun/nostr-arena-js/issues/1
+
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:  # Manual trigger only until WASM support is ready
+  # push:
+  #   tags:
+  #     - 'v*'
 
 permissions:
   contents: write

@@ -2,10 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.0] - 2025-01-26
+## [0.2.0] - 2025-01-26 (Unreleased)
+
+### Status
+WASM build is pending due to tokio::spawn requiring Send futures, which nostr-sdk's internal types don't provide. This requires significant refactoring or using a different async approach for WASM.
 
 ### Added
-- Initial WASM release
+- Initial WASM bindings structure
 - WebAssembly bindings for nostr-arena core
 - All Arena methods exposed via wasm-bindgen
 - Event types mapped to JavaScript objects
