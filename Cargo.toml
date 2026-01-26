@@ -11,15 +11,17 @@ description = "WebAssembly bindings for nostr-arena"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-nostr-arena = { git = "https://github.com/kako-jun/nostr-arena.git" }
+nostr-arena = { git = "https://github.com/kako-jun/nostr-arena.git", default-features = false, features = ["wasm"] }
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 js-sys = "0.3"
+web-sys = { version = "0.3", features = ["console"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 serde-wasm-bindgen = "0.6"
 console_error_panic_hook = "0.1"
 tracing-wasm = "0.2"
+getrandom = { version = "0.2", features = ["js"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
