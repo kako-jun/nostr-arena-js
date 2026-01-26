@@ -1,27 +1,29 @@
 [package]
 name = "nostr-arena-js"
 version = "0.2.0"
-edition = "2024"
+edition = "2021"
 license = "MIT"
 repository = "https://github.com/kako-jun/nostr-arena-js"
-authors = ["kako-jun <ppdg85ae99aaq2q2@gmail.com>"]
-description = "WebAssembly bindings for nostr-arena"
+authors = ["kako-jun"]
+description = "Node.js bindings for nostr-arena - Nostr-based multiplayer game matchmaking"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib"]
 
 [dependencies]
-nostr-arena = { git = "https://github.com/kako-jun/nostr-arena.git", default-features = false, features = ["wasm"] }
-wasm-bindgen = "0.2"
-wasm-bindgen-futures = "0.4"
-js-sys = "0.3"
-web-sys = { version = "0.3", features = ["console"] }
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-serde-wasm-bindgen = "0.6"
-console_error_panic_hook = "0.1"
-tracing-wasm = "0.2"
-getrandom = { version = "0.2", features = ["js"] }
+# Core nostr-arena functionality
+nostr-arena = { git = "https://github.com/kako-jun/nostr-arena.git" }
 
-[dev-dependencies]
-wasm-bindgen-test = "0.3"
+# NAPI-RS for Node.js bindings
+napi = { version = "2.2", default-features = false, features = ["napi8", "serde-json", "async", "tokio_rt"] }
+napi-derive = "2.2"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Async runtime
+tokio = { version = "1", features = ["rt-multi-thread"] }
+
+[build-dependencies]
+napi-build = "2.2"

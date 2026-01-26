@@ -1,0 +1,76 @@
+{
+  "name": "nostr-arena-js",
+  "version": "0.2.0",
+  "description": "Node.js bindings for nostr-arena - Nostr-based multiplayer game matchmaking. Powered by Rust for blazing fast performance.",
+  "keywords": [
+    "nostr",
+    "multiplayer",
+    "game",
+    "p2p",
+    "realtime",
+    "matchmaking",
+    "arena",
+    "napi-rs",
+    "rust"
+  ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "test": "jest",
+    "prepublishOnly": "napi prepublish -t npm",
+    "artifacts": "napi artifacts",
+    "version": "napi version"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "*.node"
+  ],
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "author": "kako-jun",
+  "license": "MIT",
+  "homepage": "https://github.com/kako-jun/nostr-arena-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kako-jun/nostr-arena-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kako-jun/nostr-arena-js/issues"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.5.0",
+    "jest": "^30.2.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/tests"
+    ],
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "forceExit": true
+  },
+  "napi": {
+    "binaryName": "nostr-arena-js",
+    "targets": [
+      "x86_64-unknown-linux-gnu",
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin",
+      "x86_64-pc-windows-msvc"
+    ]
+  }
+}
