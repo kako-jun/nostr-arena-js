@@ -41,7 +41,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22'
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -94,7 +94,7 @@ jobs:
           ls -la release/
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: release/*.node
           generate_release_notes: true
